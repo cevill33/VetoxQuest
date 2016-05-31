@@ -1,6 +1,6 @@
 name: VetoxQuest
 author: cevill33
-version: 1.4
+version: 1.0
 main: vetoxquest.Main
 depend: [Citizens]
 commands:
