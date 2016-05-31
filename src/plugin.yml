@@ -4,12 +4,6 @@ version: 1.0
 main: vetoxquest.Main
 depend: [Citizens]
 commands:
-  
-  
-  
-  
-  
-  
+
   vetoxquestanswer:
   vq:
-  // DU HUND.
