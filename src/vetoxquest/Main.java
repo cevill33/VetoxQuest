@@ -66,19 +66,19 @@ public class Main extends JavaPlugin{
     }
 
     public static String getNPCPrefix(int page, int last, String name) {
-        return "\n \n \n§8" + page + "/" + last + " §9" + name + " §8§l§ §f";
+        return "\n \n \n§8" + page + "/" + last + " §9" + name + " §8§l§: §f";
     }
 
     public static void sendOwn(Player p, String text) {
         p.sendMessage("");
         p.sendMessage("");
-        p.sendMessage(p.getDisplayName() + "§8: §f" + text);
+        p.sendMessage(p.getDisplayName() + "§8§l: §f" + text);
     }
 
     public static void sendNPC(Player p, int page, int steps, String name, String text) {
         p.sendMessage("");
         p.sendMessage("");
-        p.sendMessage("§8" + page + "/" + steps + " §9" + name + " §8§l§ §f" + text);
+        p.sendMessage("§8" + page + "/" + steps + " §9" + name + " §8§l§: §f" + text);
     }
 
 

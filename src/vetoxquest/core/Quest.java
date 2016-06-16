@@ -130,7 +130,8 @@ public abstract class Quest {
                     sorder = sorder + t + " ";
                 }
 
-		        p.sendMessage("§eNeuer Auftrag: §f" + sorder);
+                p.sendMessage("");
+		        p.sendMessage("§e§nNeuer Auftrag: §f" + sorder);
                 sendScoreboard(p, "§3Quest:", order);
                 Quest.playing.get(p.getUniqueId()).setOrder(sorder);
 				

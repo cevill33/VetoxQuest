@@ -54,10 +54,10 @@ public class NPC_PilotBarblinger extends QuestNPC {
 
                 TextComponent component1 = new TextComponent("Klicke auf die Antwort: ");
 
-                TextComponent a1 = new TextComponent("\n §3A: §7§l[DIAMANTR§STUNG]");
+                TextComponent a1 = new TextComponent("\n §3A: §7§l[DIAMANTRÜSTUNG]");
                 a1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/vetoxquestanswer A"));
 
-                TextComponent b1 = new TextComponent("\n §3B: §7§l[EISENR§STUNG]");
+                TextComponent b1 = new TextComponent("\n §3B: §7§l[EISENRÜSTUNG]");
                 b1.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/vetoxquestanswer B"));
 
                 TextComponent c1 = new TextComponent("\n §3C: §7§l[WERKZEUGE]");

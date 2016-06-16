@@ -1,6 +1,7 @@
 package vetoxquest.quest;
 
 import me.vetoxapi.VetoxAPI;
+import me.vetoxapi.mongodb.DBVetoxPlayer;
 import me.vetoxapi.mongodb.QuestPlayer;
 import me.vetoxapi.objects.VetoxPlayer;
 import org.bukkit.Bukkit;
@@ -45,28 +46,29 @@ public class Quest_DerAnfang extends Quest {
         new QuestPlayer(p.getUniqueId().toString()).create(p.getName());
         p.teleport(VetoxAPI.spawn);
         VetoxPlayer vP = VetoxPlayer.stats.get(p.getUniqueId());
+        new DBVetoxPlayer(p.getUniqueId().toString()).setObject("maintutorial", 1);
         if(vP.getLvl() < 2) {
             vP.setLvl(2);
             vP.setExp(1);
             p.setLevel(2);
+            Bukkit.getScheduler().scheduleSyncDelayedTask(Main.main, new Runnable() {
+                @Override
+                public void run() {
+                    VetoxPlayer vP = VetoxPlayer.stats.get(p.getUniqueId());
+                    if(vP.getLvl() == 2) {
+                        p.sendMessage("");
+                        p.sendMessage("§a§k#######################################");
+                        p.sendMessage("");
+                        p.sendMessage("  §6Levelaufstieg: §7Du bist nun Lvl: §5" + vP.getLvl());
+                        p.sendMessage("");
+                        p.sendMessage("§a§k#######################################");
+                        p.sendMessage("");
+                        p.setLevel(2);
+                    }
+                }
+            },20*6);
         }
 
-        Bukkit.getScheduler().scheduleSyncDelayedTask(Main.main, new Runnable() {
-            @Override
-            public void run() {
-                VetoxPlayer vP = VetoxPlayer.stats.get(p.getUniqueId());
-                if(vP.getLvl() == 2) {
-                    p.sendMessage("");
-                    p.sendMessage("§a§k#######################################");
-                    p.sendMessage("");
-                    p.sendMessage("  §6Levelaufstieg: §7Du bist nun Lvl: §5" + vP.getLvl());
-                    p.sendMessage("");
-                    p.sendMessage("§a§k#######################################");
-                    p.sendMessage("");
-                    p.setLevel(2);
-                }
-            }
-        },20*6);
 
 
 

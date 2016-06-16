@@ -1,5 +1,7 @@
 package vetoxquest.npc;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import vetoxquest.Main;
 import vetoxquest.core.Quest;
@@ -37,6 +39,7 @@ public class NPC_ClickMich extends QuestNPC{
                 Main.sendOwn(p, "Das hört sich toll an! Und ist die Reise umsonnst?");
                 break;
             case 6:
+                p.teleport(new Location(Bukkit.getWorld("Clan"), -299.5,12, 464.5));
                 p.sendMessage(Main.getNPCPrefix(tstep, steps, name) +
                         "Ja, nur wird der Pilot Fragen über die Stadt Elbros stellen. Deswegen rede mit den Bewohnern dieser Insel, denn die können dir vieles über Elbros sagen.");
                 Quest q = Quest.map.get("Der Anfang");
