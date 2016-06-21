@@ -39,10 +39,8 @@ public abstract class Quest {
         this.questnpcmethod = questnpcmethod;
         map.put(name, this);
     }
-
-    public static void sendScoreboard(Player p, String title, List<String> text){
-        Scoreboard sb = Bukkit.getServer().getScoreboardManager().getNewScoreboard();
-        Team team = sb.registerNewTeam(p.getName());
+    public static void setScoreboard(Player p){
+        Scoreboard sb = Bukkit.getServer().getScoreboardManager().getMainScoreboard();
 
         //Objective obj = sb.getObjective("aaa");
         //Objective obj = sb.getObjective("aaa");
@@ -50,6 +48,17 @@ public abstract class Quest {
         //    obj.unregister();
         //}
         Objective obj = sb.registerNewObjective("aaa", "aaa");
+
+    }
+
+    public static void sendScoreboard(Player p, String title, List<String> text){
+
+        //Objective obj = sb.getObjective("aaa");
+        //Objective obj = sb.getObjective("aaa");
+        //if(obj != null) {
+        //    obj.unregister();
+        //}
+        Objective obj = p.getScoreboard().getObjective("aaa");
         obj.setDisplaySlot(DisplaySlot.SIDEBAR);
         obj.setDisplayName(title);
 
@@ -62,8 +71,6 @@ public abstract class Quest {
             Score a1 = obj.getScore(s);
             a1.setScore(i);
         }
-        p.setScoreboard(sb);
-
     }
 
     public abstract void informManager();

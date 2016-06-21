@@ -24,7 +24,7 @@ import vetoxquest.listener.Listener_PlayerJoinEvent;
 public class Main extends JavaPlugin{
 
     public static final String prefix = "§e[§3Quest§e] ";
-    public static Plugin main; //Das ist ein Test
+    public static Plugin main;
 
     @Override
     public void onEnable() {
