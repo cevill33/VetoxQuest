@@ -11,7 +11,7 @@ public class Playing {
 
     private boolean playing;
     private String quest;
-    private String order;
+    private List<String> order;
     private int step;
     private List<String> killmethods;
     private List<String> interactmethod;
@@ -82,11 +82,11 @@ public class Playing {
         this.talkstep = talkstep;
     }
 
-    public String getOrder() {
+    public List<String> getOrder() {
         return order;
     }
 
-    public void setOrder(String order) {
+    public void setOrder(List<String> order) {
         this.order = order;
     }
 
