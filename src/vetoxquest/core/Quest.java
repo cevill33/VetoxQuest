@@ -39,7 +39,8 @@ public abstract class Quest {
         this.questnpcmethod = questnpcmethod;
         map.put(name, this);
     }
-    public static void setScoreboard(Player p){
+
+    public static void sendScoreboard(Player p, String title, List<String> text){
         Scoreboard sb = Bukkit.getServer().getScoreboardManager().getMainScoreboard();
 
         //Objective obj = sb.getObjective("aaa");
@@ -47,28 +48,23 @@ public abstract class Quest {
         //if(obj != null) {
         //    obj.unregister();
         //}
-        Objective obj = sb.registerNewObjective("aaa", "aaa");
+        if(p.getScoreboard().getObjective("aaa") != null) {
+            p.getScoreboard().getObjective("aaa").unregister();
+            Objective obj = sb.registerNewObjective("aaa", "aaa");
 
-    }
+            p.setScoreboard(sb);
+        }
+        Objective obj2 = p.getScoreboard().getObjective("aaa");
+        obj2.setDisplaySlot(DisplaySlot.SIDEBAR);
+        obj2.setDisplayName(title);
 
-    public static void sendScoreboard(Player p, String title, List<String> text){
-
-        //Objective obj = sb.getObjective("aaa");
-        //Objective obj = sb.getObjective("aaa");
-        //if(obj != null) {
-        //    obj.unregister();
-        //}
-        Objective obj = p.getScoreboard().getObjective("aaa");
-        obj.setDisplaySlot(DisplaySlot.SIDEBAR);
-        obj.setDisplayName(title);
-
-        Score order = obj.getScore("§aAuftrag: ");
+        Score order = obj2.getScore("§aAuftrag: ");
         order.setScore(text.size() + 1);
 
         int i = text.size() + 1;
         for(String s : text) {
             i--;
-            Score a1 = obj.getScore(s);
+            Score a1 = obj2.getScore(s);
             a1.setScore(i);
         }
     }
